@@ -45,8 +45,6 @@ console.log(person);
 
 function isKeyPresent(person, key) {
   if (person.hasOwnProperty(key)) {
-    console.log(person.hasOwnProperty(key));
-
     console.log("yes its persent");
   } else {
     console.log("not present");
@@ -54,3 +52,44 @@ function isKeyPresent(person, key) {
 }
 
 isKeyPresent(person, "email");
+
+//Level ==> 2
+
+const car = {
+  brand: "Tata",
+  model: "Safari",
+  year: 2022,
+};
+
+function printObj(obj) {
+  for (const key in obj) {
+    console.log(obj[key]);
+    console.log(`${key} : ${obj[key]}`);
+  }
+}
+printObj(car);
+
+//02.  Q2. Print all keys of the object using Object.keys()
+console.log(Object.keys(car));
+
+//03. Q3. Print all values of the object using Object.values()
+
+console.log(Object.values(car));
+
+//04  Q4. Print key and value pairs using Object.entries() and loop through it.
+
+function arrayInKeyValuePair(car) {
+  const newArr = Object.entries(car);
+  console.log(newArr);
+  for (let i = 0; i < newArr.length; i++) {
+    console.log(newArr[i], "85");
+    const [key, value] = newArr[i];
+    console.log(`${key} :  ${value}`);
+  }
+}
+
+arrayInKeyValuePair(car);
+
+// Q5. Count how many keys an object has
+
+console.log(Object.keys(car).length);
