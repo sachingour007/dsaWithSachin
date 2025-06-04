@@ -92,4 +92,23 @@ arrayInKeyValuePair(car);
 
 // Q5. Count how many keys an object has
 
-console.log(Object.keys(car).length);
+// console.log(Object.keys(car).length);
+
+const arr = ["emailId"];
+
+const req_body = {
+  firstName: "Shiva",
+  lastName: "gour",
+  emailId: "Shivagmail.com",
+  password: "Shiva@123",
+  age: 26,
+  gender: "male",
+  skills: ["JS", "React", "Next"],
+};
+
+function checkfilds(arr, req_body) {
+  const data = Object.keys(req_body).some((k) => arr.includes(k));
+  console.log(data, "111");
+}
+
+checkfilds(arr, req_body);
