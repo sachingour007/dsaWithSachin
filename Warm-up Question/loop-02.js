@@ -45,3 +45,25 @@ function findLargestNumber(arr) {
 }
 
 console.log(findLargestNumber(arr0));
+
+//Second Largest Number
+
+function secondLargestNumber(arr) {
+  if (arr.length < 2) {
+    return null;
+  }
+  
+  let largeNum = -Infinity;
+  let secondLargeNum = -Infinity;
+
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] > largeNum) {
+      secondLargeNum = largeNum;
+      largeNum = arr[i];
+    } else if (arr[i] > secondLargeNum && arr[i] !== largeNum) {
+      secondLargeNum = arr[i];
+    }
+  }
+  return { largeNum, secondLargeNum };
+}
+console.log(secondLargestNumber(arr0));
