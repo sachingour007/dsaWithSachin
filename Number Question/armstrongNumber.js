@@ -24,7 +24,7 @@ Explanation: 1*1*1*1 + 6*6*6*6 + 3*3*3*3 + 4*4*4*4 = 1634
 
 */
 
-let number = 153;
+let number = 371;
 
 //Check Order of Number
 
@@ -54,4 +54,24 @@ function isArmstrongNum(x) {
   return armNum === x ? "Number is Aramstrong" : "Not Aramstrong !";
 }
 
+function armstrongNumber(n) {
+  let temp = n;
+  let nCopy = n;
+  // code here
+  let nLength = 0;
+  while (nCopy > 0) {
+    nLength++;
+    nCopy = Math.floor(nCopy / 10);
+  }
+  let armNum = 0;
+  while (temp > 0) {
+    let rem = temp % 10;
+    armNum += Math.pow(rem, nLength);
+    temp = Math.floor(temp / 10);
+  }
+
+  return armNum === n ? true : false;
+}
+
+// console.log(armstrongNumber(number));
 console.log(isArmstrongNum(number));
