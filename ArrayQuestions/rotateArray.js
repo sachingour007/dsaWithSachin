@@ -19,4 +19,17 @@ function rotateArr(arr, k) {
   return arr;
 }
 
-console.log(rotateArr(arr, k));
+// console.log(rotateArr(arr, k));
+
+const digit = [1, 2, 3];
+function plusOne(digit) {
+  let num = 0;
+  for (let i = 0; i < digit.length; i++) {
+    num = num * 10 + digit[i];
+  }
+  num = num + 1;
+  // console.log(num.split(" "));
+  return num.toString().split("").map(Number);
+}
+
+console.log(plusOne(digit));
