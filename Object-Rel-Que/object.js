@@ -5,15 +5,16 @@ const user = [
 ];
 
 function groupBy(obj, key) {
-  const result = {};
-  for (const user of obj) {
-    const keyVal = user[key];
-    if (!result.hasOwnProperty(keyVal)) {
-      result[keyVal] = [];
+  const newObj = {};
+  for (let ageKey of obj) {
+    const keyVal = ageKey[key];
+
+    if (!newObj.hasOwnProperty(keyVal)) {
+      newObj[keyVal] = [];
     }
-    result[keyVal].push(user);
+    newObj[keyVal].push(ageKey);
   }
-  return result;
+  return obj;
 }
 
 console.log(groupBy(user, "age"));
@@ -25,23 +26,23 @@ const person = {
   age: 25,
   city: "ajmer",
 };
-console.log(person);
+// console.log(person);
 
 //Dot Notation
 person.email = "sachin@gmail.com";
 //Braket Notation
 person["email01"] = "sachin1@gmail.com";
 
-console.log(person);
+// console.log(person);
 
 //Update the object
 person.city = "delhi";
-console.log(person);
+// console.log(person);
 
 //Delete the property
 
 delete person.age;
-console.log(person);
+// console.log(person);
 
 function isKeyPresent(person, key) {
   if (person.hasOwnProperty(key)) {
@@ -51,7 +52,7 @@ function isKeyPresent(person, key) {
   }
 }
 
-isKeyPresent(person, "email");
+// isKeyPresent(person, "email");
 
 //Level ==> 2
 
@@ -67,14 +68,14 @@ function printObj(obj) {
     console.log(`${key} : ${obj[key]}`);
   }
 }
-printObj(car);
+// printObj(car);
 
 //02.  Q2. Print all keys of the object using Object.keys()
-console.log(Object.keys(car));
+// console.log(Object.keys(car));
 
 //03. Q3. Print all values of the object using Object.values()
 
-console.log(Object.values(car));
+// console.log(Object.values(car));
 
 //04  Q4. Print key and value pairs using Object.entries() and loop through it.
 
@@ -88,7 +89,7 @@ function arrayInKeyValuePair(car) {
   }
 }
 
-arrayInKeyValuePair(car);
+// arrayInKeyValuePair(car);
 
 // Q5. Count how many keys an object has
 
@@ -111,4 +112,4 @@ function checkfilds(arr, req_body) {
   console.log(data, "111");
 }
 
-checkfilds(arr, req_body);
+// checkfilds(arr, req_body);
