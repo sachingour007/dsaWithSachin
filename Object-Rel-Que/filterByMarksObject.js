@@ -13,16 +13,16 @@ const students = [
     }
 */
 
-function filterByMarksObject(obj){
-    const result = obj.reduce((acc, item) => {
-        console.log(item.marks);
-        if(!acc.hasOwnProperty(item.marks)){
-            acc[item.marks] = []
-        }
-        acc[item.marks].push(item.name);
-        return acc
-    },{})
-    return result
+function filterByMarksObject(obj) {
+  const result = obj.reduce((acc, item) => {
+    console.log(item.marks);
+    if (!acc.hasOwnProperty(item.marks)) {
+      acc[item.marks] = [];
+    }
+    acc[item.marks].push(item.name);
+    return acc;
+  }, {});
+  return result;
 }
 
 /*
@@ -42,5 +42,4 @@ function filterByMarksObject(obj){
 
 */
 
-
-console.log(filterByMarksObject(students))
+console.log(filterByMarksObject(students));
