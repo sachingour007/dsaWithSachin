@@ -1,18 +1,13 @@
 let num = 5;
 
 function factorialNum(num) {
-  num = Number(num);
+	if (num <= 1) {
+		return 1;
+	}
 
-  if (num === 0 || num === 1) {
-    return 1;
-  }
-
-  let result = 1;
-  while (num > 0) {
-    result = result * num;
-    num--;
-  }
-  return result;
+	return num * factorialNum(num - 1);
 }
 
-console.log(factorialNum(num));
+console.log(factorialNum(5));
+console.log(factorialNum(0));
+console.log(factorialNum(3));
