@@ -1,24 +1,24 @@
 class Node {
-	constructor(value) {
-		this.value = value;
+	constructor(val) {
+		this.val = val;
 		this.next = null;
 	}
 }
-
-class MyLinkedList {
++
+class LinkedList {
 	constructor() {
 		this.head = null;
 		this.size = 0;
 	}
 
-	addAtHead(val) {
+	AddAtHead(val) {
 		const newNode = new Node(val);
 		newNode.next = this.head;
 		this.head = newNode;
 		this.size++;
 	}
 
-	addAtTail(val) {
+	AddToTail(val) {
 		let newNode = new Node(val);
 		if (this.head === null) {
 			this.head = newNode;
@@ -31,72 +31,73 @@ class MyLinkedList {
 		}
 		this.size++;
 	}
-
-	addAtIndex(index, val) {
+	AddAtIndex(index, val) {
+		const newNode = new Node(val);
 		if (index === 0) {
-			this.addAtHead(val);
+			this.AddAtHead(val);
 			return;
 		} else if (index === this.size) {
-			this.addAtTail(val);
-			return;
+			this.AddToTail(val);
 		} else {
-			let newNode = new Node(val);
 			let curr = this.head;
 			for (let i = 0; i < index - 1; i++) {
 				curr = curr.next;
 			}
-
 			newNode.next = curr.next;
 			curr.next = newNode;
+			this.size++;
 		}
-
-		this.size++;
 	}
-
-	getElement(index) {
+	PrintLL() {
+		let curr = this.head;
+		let result = "";
+		while (curr !== null) {
+			result += curr.val + " -> ";
+			curr = curr.next;
+		}
+		console.log(result + "null");
+	}
+	GetNode(index) {
 		if (index < 0 || index >= this.size) {
 			return -1;
 		}
-		let curr = this.head;
+		let current = this.next;
 		for (let i = 0; i < index; i++) {
-			curr = curr.next;
+			current = current.next;
 		}
-		return curr.value;
+		return current.val;
 	}
-
-	deleteAtIndex(index) {
-		if (index < 0 || index > this.size) {
+	DeleteElement(index) {
+		if (index < 0 || index >= this.size) {
 			return;
+		}
+		if (index === 0) {
+			this.head = this.head.next;
 		} else {
-			let curr = this.head;
-			for (let i = 0; i < index - 1; i++) {
-				curr = curr.next;
+			let current = this.head;
+
+			for (let i = 0; i < index - 1; i) {
+				current = current.next;
 			}
-			curr.next = curr.next.next;
+			current.next = current.next.next;
 		}
 		this.size--;
 	}
-
-	print() {
-		let current = this.head;
-		let result = "";
-		while (current) {
-			result += current.value;
-			if (current.next) {
-				result += " -> ";
-			}
-			current = current.next;
-		}
-		console.log(result + " -> null");
-	}
 }
 
-let list = new MyLinkedList();
-list.addAtHead(1);
-list.addAtTail(5);
-list.addAtIndex(1, 6);
-list.addAtIndex(0, 9);
-list.addAtIndex(4, 10);
-list.deleteAtIndex(3);
+// function LinkedList() {
+// 	this.head = null;
 
-list.print();
+// 	this.addAtHead = function (val) {
+// 		console.log("helo");
+// 	};
+// }
+
+const list = new LinkedList();
+
+list.AddAtHead(0);
+list.AddToTail(5);
+list.AddToTail(6);
+list.AddToTail(7);
+list.AddAtIndex(2, 10);
+list.PrintLL();

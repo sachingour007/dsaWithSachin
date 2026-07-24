@@ -11,49 +11,45 @@ class MyLinkedList {
 		this.size = 0;
 	}
 
-	addAtHead(val) {
+	AddAtHead(val) {
 		const newNode = new Node(val);
 		newNode.next = this.head;
 		this.head = newNode;
 		this.size++;
 	}
-
-	reverseLL() {
-		let prev = null;
-		let curr = this.head;
-
-		while (curr) {
-			let temp = curr.next;
-			curr.next = prev;
-			prev = curr;
-			curr = temp;
-		}
-
-		this.head = prev;
-		return this.head;
-	}
-
-	printLL() {
+	PrintLinkedList() {
 		let curr = this.head;
 		let result = "";
 
-		while (curr) {
-			result = result + curr.val;
-			if (curr.next) {
-				result += " => ";
-			}
+		while (curr !== null) {
+			result = result + curr.val + "-> ";
 			curr = curr.next;
 		}
-		console.log(result + " => null");
+
+		console.log(result + "null");
+	}
+	ReverseLL() {
+		let prev = null;
+		let curr = this.head
+
+		while(curr !== null){
+			let temp = curr.next;
+			curr.next = prev;
+			prev = curr;
+			console.log(prev, "39")
+			curr = temp;
+
+		}
+		this.head = prev 
 	}
 }
 
-let list = new MyLinkedList();
-list.addAtHead(1);
-list.addAtHead(2);
-list.addAtHead(3);
-list.addAtHead(4);
-list.printLL();
+const listOne = new MyLinkedList();
 
-list.reverseLL()
-list.printLL();
+listOne.AddAtHead(5);
+listOne.AddAtHead(4);
+listOne.AddAtHead(3);
+listOne.AddAtHead(2);
+listOne.PrintLinkedList();
+listOne.ReverseLL();
+listOne.PrintLinkedList();
